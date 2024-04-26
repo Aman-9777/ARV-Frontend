@@ -1,0 +1,148 @@
+.user_b {
+    padding: 10px;
+}
+.scral_bg img {
+    width: 150px;
+}
+.user_b img {
+    max-width: 100px;
+    width: 100%;
+}
+.buttons
+{
+  text-align: center;
+}
+.header-toggler img
+{
+  width: 35px;
+}
+a.nav-link.nav-group-toggle i {
+    position: relative;
+    left: -15px;
+    right: 0;
+    font-size: 23px;
+}
+footer.footer {
+    background: #fff;
+    direction: ltr;
+    padding: 1rem .875rem;
+}
+footer.footer ul {
+    margin: 0;
+}
+.al_hd {
+    font-weight: bold;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+.set_screen{
+    max-width: 600px;
+     margin: auto;
+      width: 100%;
+}
+header#new_styling li a {
+    font-size: 18px;
+    padding-left: 59px;
+}
+.cent_box_styling {
+  text-align: center;
+  padding: 50px 0px;
+}
+.cent_box_styling h1 {
+  font-size: 47px;
+  font-weight: bold;
+}
+.modal-header h5 {
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.agenda1 {
+  background: #f8f2f2;
+  padding: 15px;
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  width: 100%;
+}
+.number {
+}
+.agend_title {
+    width: 70%;
+}
+.user_b29 img {
+    border-radius: 50px;
+    width: 80px;
+    height: 80px;
+}
+.user_b29{
+    padding: 10px;
+}
+.agendano{
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: normal;
+  font-size: 19px;
+  background: #8353e2 !important;
+}
+.user_ty {
+    text-align: center;
+}
+.user_ty h4 {
+    font-size: 17px;
+    padding: 10px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.userlogin_scren .nav-group-toggle::after
+{
+  display: none;
+}
+.submint_agend {
+    width: 20%;
+    text-align: center;
+}
+.agend_title h2 {
+    font-size: 26px;
+    font-weight: bold;
+}
+.agenda_cotanor{
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+}
+.number {
+    width: 10%;
+}
+@media (max-width: 767.98px) { 
+
+header#new_styling li a {
+    padding-left: 0px;
+}
+
+ }
+
+ @media (max-width: 575.98px) { 
+
+
+.agend_title {
+    width: 100%;
+}
+.agendano {
+    position: absolute;
+  left: 6px;
+    top: 65px;
+    width: 31px;
+  height: 30px;
+  font-size: 15px;
+}
+.submint_agend {
+    width: 100%;
+    text-align: center;
+}
+.buton_cent{
+    text-align: center;
+  }
+}

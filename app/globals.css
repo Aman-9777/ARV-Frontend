@@ -1,0 +1,119 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 1); /* semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* ensure it's above other content */
+}
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  }
+  .toggle-password{
+    cursor: pointer;
+  } 
+  p.error {
+    display: inline-block;
+    color: red;
+    font-size: 12px;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+}
+.btn_uy button:hover {
+  background-color: #FFF; 
+  color: #000;
+}
+body {
+  transition: margin-left 0.5s;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px !important;
+  width: 250px !important;
+  height: 100%;
+  transition: left 0.5s ease;
+}
+
+.sidebar.show {
+  left: 0 !important; 
+}
+.wrapper {
+  padding-left: 0 !important; 
+  transition: padding-left 0.5s ease;
+}
+.wrapper.sidebar-open {
+  padding-left: 250px !important; 
+}
+.accordion-item, .accordion, .accordion-button{
+  background: none !important;
+  border: none;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.accordion-button::after{
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.accordion-button:focus{
+  border: none;
+  outline: 0;
+  box-shadow: none;
+}
+.accordion ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.accordion-body{
+  padding: 0;
+}
+.accordion .nav-item .nav-link{
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: none;
+  padding: 10px 20px 10px 50px;
+}
+.accordion .nav-item .nav-link:hover{
+  background:rgba(255, 255, 255, 0.05);
+}
+input#meetingDate{
+  display: inline-block;
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
