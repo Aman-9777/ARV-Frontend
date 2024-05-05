@@ -12,7 +12,7 @@ import {
 } from "../../utils/api";
 import { setCompanies } from "../../lib/features/companySlice";
 
-const viewar = () => {
+const Viewar = () => {
   const [arsList, setARList] = useState([]);
   const [editCompany, setEditCompany] = useState({});
   const [updateList, setUpdateList] = useState(false);
@@ -200,4 +200,4 @@ const viewar = () => {
   );
 };
 
-export default requireAuth(viewar);
+export default requireAuth(Viewar);

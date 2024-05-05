@@ -6,7 +6,7 @@ import { setLoading } from "../../lib/features/loading";
 import { getCompany, getRp, updateCompany, updateRp } from "../../utils/api";
 import { setCompanies } from "../../lib/features/companySlice";
 
-const viewrp = () => {
+const Viewrp = () => {
   const [rpsList, setRPList] = useState([]);
   const [editRp, setEditRp] = useState({});
   const [updateList, setUpdateList] = useState(false);
@@ -177,4 +177,4 @@ const viewrp = () => {
   );
 };
 
-export default requireAuth(viewrp);
+export default requireAuth(Viewrp);
