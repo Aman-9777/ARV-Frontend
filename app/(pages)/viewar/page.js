@@ -3,7 +3,13 @@ import requireAuth from "../../components/requireAuth";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../lib/features/loading";
-import { getAr, getCompany, getRp, updateCompany } from "../../utils/api";
+import {
+  getAr,
+  getCompany,
+  getRp,
+  updateAr,
+  updateCompany,
+} from "../../utils/api";
 import { setCompanies } from "../../lib/features/companySlice";
 
 const viewar = () => {
@@ -35,11 +41,11 @@ const viewar = () => {
     fetchData();
   }, [updateList]);
 
-  const handleEdit = (company) => {
-    console.log(company);
+  const handleEdit = (ar) => {
+    console.log(ar, "ar");
     setEditCompany({
-      ...company,
-      companyId: company.companyId,
+      ...ar,
+      arId: ar.arId,
     });
   };
 
@@ -53,16 +59,12 @@ const viewar = () => {
 
   const handleUpdate = async () => {
     try {
-      const companyData = {
-        companyName: editCompany.companyName,
-        address: editCompany.address,
+      const arData = {
+        companyId: editCompany.companyId,
+        arName: editCompany.arName,
       };
-      console.log("Updated Company", companyData);
-      const response = await updateCompany(
-        editCompany.companyId,
-        companyData,
-        authToken
-      );
+      console.log("Updated Ar", arData);
+      const response = await updateAr(editCompany.arId, arData, authToken);
       // Reload the company list after updating
       if (response) {
         setUpdateList(!updateList);
@@ -89,7 +91,7 @@ const viewar = () => {
                         <th scope="col">CREATED BY</th>
                         <th scope="col">AR ID</th>
                         <th scope="col">Company ID</th>
-                        {/* <th>ACTIONS</th> */}
+                        <th>ACTIONS</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -102,7 +104,7 @@ const viewar = () => {
                           <td>{company?.createdBy}</td>
                           <td>{company?.arId}</td>
                           <td>{company?.companyId}</td>
-                          {/* <td>
+                          <td>
                             <button
                               type="button"
                               data-bs-toggle="modal"
@@ -112,7 +114,7 @@ const viewar = () => {
                             >
                               <i className="fa-regular fa-pen-to-square"></i>
                             </button>
-                          </td> */}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -134,7 +136,7 @@ const viewar = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="updateCompanyLabel">
-                Update RP
+                Update AR
               </h5>
               <button
                 type="button"
@@ -146,28 +148,28 @@ const viewar = () => {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
-                  <label htmlFor="companyName" className="form-label">
-                    RP Name
+                  <label htmlFor="arName" className="form-label">
+                    AR Name
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="companyName"
-                    name="companyName"
-                    value={editCompany.companyName}
+                    id="arName"
+                    name="arName"
+                    value={editCompany.arName}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="address" className="form-label">
-                    RP ID
+                  <label htmlFor="companyId" className="form-label">
+                    Company ID
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="address"
-                    name="address"
-                    value={editCompany.address}
+                    id="companyId"
+                    name="companyId"
+                    value={editCompany.companyId}
                     onChange={handleChange}
                   />
                 </div>

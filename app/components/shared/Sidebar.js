@@ -12,20 +12,22 @@ export default function Sidebar() {
         <div className="accordion-item">
           <h2 className="accordion-header" id="heading">
             <button
-              className="accordion-button"
+              className="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapse"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="collapse"
             >
-              <i className="fa-solid fa-address-card me-2"></i>
-              RP
+              <a className="nav-link nav-group-toggle" href="#">
+                <i className="fa-regular fa-clipboard me-2"></i>
+                RP
+              </a>
             </button>
           </h2>
           <div
             id="collapse"
-            className="accordion-collapse collapse show"
+            className="accordion-collapse collapse"
             aria-labelledby="heading"
             data-bs-parent="#accordionExample"
           >
@@ -86,20 +88,22 @@ export default function Sidebar() {
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingar">
             <button
-              className="accordion-button"
+              className="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapsear"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="collapsear"
             >
-              <i className="fa-solid fa-building me-2"></i>
-              AR
+              <a className="nav-link nav-group-toggle" href="#">
+                <i className="fa-regular fa-clipboard me-2"></i>
+                AR
+              </a>
             </button>
           </h2>
           <div
             id="collapsear"
-            className="accordion-collapse collapse show"
+            className="accordion-collapse collapse "
             aria-labelledby="headingar"
             data-bs-parent="#accordionExample"
           >

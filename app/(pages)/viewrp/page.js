@@ -3,12 +3,12 @@ import requireAuth from "../../components/requireAuth";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../lib/features/loading";
-import { getCompany, getRp, updateCompany } from "../../utils/api";
+import { getCompany, getRp, updateCompany, updateRp } from "../../utils/api";
 import { setCompanies } from "../../lib/features/companySlice";
 
 const viewrp = () => {
   const [rpsList, setRPList] = useState([]);
-  const [editCompany, setEditCompany] = useState({});
+  const [editRp, setEditRp] = useState({});
   const [updateList, setUpdateList] = useState(false);
   const dispatch = useDispatch();
 
@@ -35,17 +35,16 @@ const viewrp = () => {
     fetchData();
   }, [updateList]);
 
-  const handleEdit = (company) => {
-    console.log(company);
-    setEditCompany({
-      ...company,
-      companyId: company.companyId,
+  const handleEdit = (rp) => {
+    setEditRp({
+      ...rp,
+      rpId: rp.rpId,
     });
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEditCompany((prevState) => ({
+    setEditRp((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -53,16 +52,11 @@ const viewrp = () => {
 
   const handleUpdate = async () => {
     try {
-      const companyData = {
-        companyName: editCompany.companyName,
-        address: editCompany.address,
+      const rpData = {
+        rpName: editRp.rpName,
       };
-      console.log("Updated Company", companyData);
-      const response = await updateCompany(
-        editCompany.companyId,
-        companyData,
-        authToken
-      );
+      console.log("Updated Rp", rpData);
+      const response = await updateRp(editRp.rpId, rpData, authToken);
       // Reload the company list after updating
       if (response) {
         setUpdateList(!updateList);
@@ -144,28 +138,15 @@ const viewrp = () => {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
-                  <label htmlFor="companyName" className="form-label">
+                  <label htmlFor="rpName" className="form-label">
                     RP Name
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="companyName"
-                    name="companyName"
-                    value={editCompany.companyName}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="address" className="form-label">
-                    RP ID
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="address"
-                    name="address"
-                    value={editCompany.address}
+                    id="rpName"
+                    name="rpName"
+                    value={editRp.rpName}
                     onChange={handleChange}
                   />
                 </div>

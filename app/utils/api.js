@@ -158,6 +158,14 @@ export const getRp = async (data, authToken) => {
     throw error;
   }
 };
+export const updateRp = async (rpId, data, authToken) => {
+  try {
+    const endpoint = `${ENDPOINT.UPDATE_RP + rpId}`;
+    return await fetchApi(endpoint, "PATCH", data, authToken);
+  } catch (error) {
+    throw error;
+  }
+};
 //AR Create
 
 export const arCreate = async (data, authToken) => {
@@ -170,6 +178,14 @@ export const arCreate = async (data, authToken) => {
 export const getAr = async (data, authToken) => {
   try {
     return await fetchApi(ENDPOINT.VIEW_AR, "POST", data, authToken);
+  } catch (error) {
+    throw error;
+  }
+};
+export const updateAr = async (arId, data, authToken) => {
+  try {
+    const endpoint = `${ENDPOINT.UPDATE_AR + arId}`;
+    return await fetchApi(endpoint, "PATCH", data, authToken);
   } catch (error) {
     throw error;
   }

@@ -40,6 +40,9 @@ const Login = () => {
       if (!userData.error) {
         dispatch(setUser(userData));
         router.push("/dashboard");
+        setTimeout(() => {
+          window?.location?.reload();
+        }, 2000);
       }
     } catch (error) {
       console.log(error);
@@ -75,10 +78,10 @@ const Login = () => {
                       name="email"
                       className="form-control _ge_de_ol"
                       type="email"
-                      value="voter@gmail.com"
+                      // value="voter@gmail.com"
                       placeholder="Enter Email"
-                      onFocus={(e) => (e.target.placeholder = "")}
-                      onChange={(e) => setEmail(e.target.value)}
+                      // onFocus={(e) => (e.target.placeholder = "")}
+                      // onChange={(e) => setEmail(e.target.value)}
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -100,8 +103,8 @@ const Login = () => {
                       className="form-control"
                       name="password"
                       placeholder="Enter Password"
-                      value="Hsaf3$%223"
-                      onChange={(e) => setPassword(e.target.value)}
+                      // value="Hsaf3$%223"
+                      // onChange={(e) => setPassword(e.target.value)}
                       {...register("password", {
                         required: "Password is required",
                       })}
