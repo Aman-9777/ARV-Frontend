@@ -1,6 +1,4 @@
-// const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-//https://0cdd-103-54-103-195.ngrok-free.app
-const API_URL = "https://0cdd-103-54-103-195.ngrok-free.app";
+const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const LOGIN = `${API_URL}/auth/login`;
 export const SIGNUP = `${API_URL}/auth/signup`;
@@ -22,3 +20,4 @@ export const VIEW_RP = `${API_URL}/rp/get`;
 export const AR_CREATE = `${API_URL}/ar/create`;
 export const VIEW_AR = `${API_URL}/ar/get`;
 export const UPDATE_AR = `${API_URL}/ar/`;
+
