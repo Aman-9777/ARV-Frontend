@@ -19,6 +19,7 @@ const Createmeeting = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.user?.token);
   const authToken = token;
+  // Hsaf3$ % 223;
   const companies = useSelector(selectCompanies) || [];
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Createmeeting = () => {
   }
 
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log(data, "onSubmiteeting");
     try {
       dispatch(setLoading(true));
       reset();
@@ -102,24 +103,46 @@ const Createmeeting = () => {
                       )}
                     </div>
                     <div className="mb-3 col-lg-6">
-                      <label className="form-label" htmlFor="meetingDate">
-                        Date
+                      <label className="form-label" htmlFor="meetingStartDate">
+                        Start Date
                       </label>
                       <input
                         className={`form-control ${
-                          errors.meetingDate ? "is-invalid" : ""
+                          errors.meetingStartDate ? "is-invalid" : ""
                         }`}
-                        name="meetingDate"
+                        name="meetingStartDate"
                         id="meetingDate"
                         type="date"
-                        {...register("meetingDate", {
+                        {...register("meetingStartDate", {
                           required: true,
                           validate: validateDate,
                         })}
                       />
-                      {errors.meetingDate && (
+                      {errors.meetingStartDate && (
                         <span className="text-danger">
-                          {errors.meetingDate.message}
+                          {errors.meetingStartDate.message}
+                        </span>
+                      )}
+                    </div>
+                    <div className="mb-3 col-lg-6">
+                      <label className="form-label" htmlFor="meetingEndDate">
+                        End Date
+                      </label>
+                      <input
+                        className={`form-control ${
+                          errors.meetingEndDate ? "is-invalid" : ""
+                        }`}
+                        name="meetingEndDate"
+                        id="meetingDate"
+                        type="date"
+                        {...register("meetingEndDate", {
+                          required: true,
+                          validate: validateDate,
+                        })}
+                      />
+                      {errors.meetingEndDate && (
+                        <span className="text-danger">
+                          {errors.meetingEndDate.message}
                         </span>
                       )}
                     </div>

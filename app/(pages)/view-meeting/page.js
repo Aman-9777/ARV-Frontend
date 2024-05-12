@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../lib/features/loading";
 import { getMeetings, updateMeeting } from "../../utils/api";
+import moment from "moment";
 // import { setMeetings } from '../../lib/features/meetingSlice';
 
 const ViewMeeting = () => {
@@ -53,7 +54,8 @@ const ViewMeeting = () => {
   const handleUpdate = async () => {
     try {
       const meetingData = {
-        meetingDate: editMeeting.meetingDate,
+        meetingStartDate: editMeeting.meetingStartDate,
+        meetingEndDate: editMeeting.meetingEndDate,
         startTime: editMeeting.startTime,
         endTime: editMeeting.endTime,
       };
@@ -85,7 +87,8 @@ const ViewMeeting = () => {
                     <thead className="table-dark">
                       <tr>
                         <th scope="col">Meeting ID</th>
-                        <th scope="col">Meeting Date</th>
+                        <th scope="col">Meeting Start Date</th>
+                        <th scope="col">Meeting End Date</th>
                         <th scope="col">Start Time</th>
                         <th scope="col">End Time</th>
                         <th>Actions</th>
@@ -95,7 +98,16 @@ const ViewMeeting = () => {
                       {meetings.map((meeting, index) => (
                         <tr key={index}>
                           <td>{meeting.meetingId}</td>
-                          <td>{meeting.meetingDate.split("T")[0]}</td>
+                          <td>
+                            {moment(meeting.meetingStartDate)
+                              .utc()
+                              .format("DD/MM/YYYY")}
+                          </td>
+                          <td>
+                            {moment(meeting.meetingEndDate)
+                              .utc()
+                              .format("DD/MM/YYYY")}
+                          </td>
                           <td>{meeting.startTime}</td>
                           <td>{meeting.endTime}</td>
                           <td>
@@ -142,15 +154,28 @@ const ViewMeeting = () => {
             <div className="modal-body">
               <form>
                 <div className="mb-3">
-                  <label htmlFor="meetingDate" className="form-label">
-                    Meeting Date
+                  <label htmlFor="meetingStartDate" className="form-label">
+                    Meeting Start Date
                   </label>
                   <input
                     type="date"
                     className="form-control"
                     id="meetingDate"
-                    name="meetingDate"
-                    value={editMeeting.meetingDate}
+                    name="meetingStartDate"
+                    value={editMeeting.meetingStartDate}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="meetingEndDate" className="form-label">
+                    Meeting End Date
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="meetingDate"
+                    name="meetingEndDate"
+                    value={editMeeting.meetingEndDate}
                     onChange={handleChange}
                   />
                 </div>
